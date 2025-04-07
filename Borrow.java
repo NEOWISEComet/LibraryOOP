@@ -78,4 +78,17 @@ class Borrow{
     public void setPenalty(int penalty) {
         this.penalty = penalty;
     }
+    @Override
+    public String toString() {
+        return "Borrow Details:\n" +
+               "Borrow ID: " + borrowID + "\n" +
+               "ISBN: " + isbn + "\n" +
+               "Borrow Date: " + borrowDate + "\n" +
+               "Return Date: " + (returnDate != null ? returnDate : "Not Returned") + "\n" +
+               "Due Date: " + dueDate + "\n" +
+               "Status: " + borrowStatus + "\n" +
+               "Penalty: " + penalty + "\n" +
+               "Student ID: " + studentID;
+    }
+
 }

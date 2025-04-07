@@ -4,16 +4,14 @@ import java.util.Map;
 
 class Librarian extends Person {
     private String employeeId;
-    private String employeeStatus;
     private String email;
     private String address;
     private int phoneNumber;
     private Library library;
 
-    public Librarian(Library library, String firstName, String lastName, String email, String address, int phoneNumber, String employeeId, String employeeStatus, int age) {
+    public Librarian(Library library, String firstName, String lastName, String email, String address, int phoneNumber, String employeeId, int age) {
         super(firstName, lastName, age);
         this.employeeId = employeeId;
-        this.employeeStatus = employeeStatus;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
@@ -83,12 +81,6 @@ class Librarian extends Person {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
-    public String getEmployeeStatus() {
-        return employeeStatus;
-    }
-    public void setEmployeeStatus(String employeeStatus) {
-        this.employeeStatus = employeeStatus;
-    }
     public String getEmail() {
         return email;
     }
@@ -112,7 +104,6 @@ class Librarian extends Person {
     public String toString() {
         return super.toString() +
                 "\nemployeeId: " + employeeId +
-                "\nemployeeStatus: " + employeeStatus +
                 "\naddress: " + address +
                 "\nemail: " + email +
                 "\nphoneNumber: " + phoneNumber + "\t --";

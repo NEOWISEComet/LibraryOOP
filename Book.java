@@ -8,8 +8,9 @@ public class Book {
     private String publisher;
     private String genre;
     private List<String> authors; /* List of author of a book .... */
+    private Library library;
 
-    public Book(String title, String isbn, int publicationYear, String publisher, String genre, String authorID) {
+    public Book(String title, String isbn, int publicationYear, String publisher, String genre, String authorID, Library library) {
         this.title = title;
         this.isbn = isbn;
         this.publicationYear = publicationYear;
@@ -17,6 +18,7 @@ public class Book {
         this.genre = genre;
         this.authors = new ArrayList<>();
         this.authors.add(authorID);
+        this.library = library;
     }
 
     public String getTitle() {
@@ -73,19 +75,16 @@ public class Book {
 
     @Override
     public String toString() {
-        StringBuilder bookDetails = new StringBuilder("Title: " + title +
-                "\nISBN: " + isbn +
-                "\nPublication Year: " + publicationYear +
-                "\nPublisher: " + publisher +
-                "\nGenre: " + genre +
-                "\nAuthors: ");
-        if (authors.isEmpty()) {
-            bookDetails.append("No Authors");
-        } else {
-            for (String author : authors) {
-                bookDetails.append("\n").append(author.toString());
-            }
-        }
-        return bookDetails.toString();
+
+        List<String> authorNames = library.getAuthorNames(authors);
+
+        return "Book Details:\n" +
+               "Title: " + title + "\n" +
+               "ISBN: " + isbn + "\n" +
+               "Publication Year: " + publicationYear + "\n" +
+               "Publisher: " + publisher + "\n" +
+               "Genre: " + genre + "\n" +
+               "Authors: " + String.join(", ", authorNames) + "\n";
     }
+    
 }

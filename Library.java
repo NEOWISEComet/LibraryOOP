@@ -111,7 +111,8 @@ public class Library {
         if (!checkAuthor(authorID)) {
             throw new IllegalArgumentException("AuthorID " + authorID + " does not exist.");
         }
-        Book book = new Book(title, isbn, publicationYear, publisher, genre, authorID);
+
+        Book book = new Book(title, isbn, publicationYear, publisher, genre, authorID, this);
         inventory.addBook(book, 1);
     }
 

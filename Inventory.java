@@ -60,4 +60,5 @@ public class Inventory {
         }
         return inventoryDetails.toString();
     }
+
 }
