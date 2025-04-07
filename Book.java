@@ -7,15 +7,16 @@ public class Book {
     private int publicationYear;
     private String publisher;
     private String genre;
-    private List<Author> authors; /* List of author of a book, ie: New Book = .... */
+    private List<String> authors; /* List of author of a book .... */
 
-    public Book(String title, String isbn, int publicationYear, String publisher, String genre, String authors) {
+    public Book(String title, String isbn, int publicationYear, String publisher, String genre, String authorID) {
         this.title = title;
         this.isbn = isbn;
         this.publicationYear = publicationYear;
         this.publisher = publisher;
         this.genre = genre;
         this.authors = new ArrayList<>();
+        this.authors.add(authorID);
     }
 
     public String getTitle() {
@@ -55,16 +56,19 @@ public class Book {
     }
 
     /* Author Functions */
-    public List<Author> getAuthors() {
+    public List<String> getAuthors() {
         return new ArrayList<>(authors);
     }
-    public void addAuthor(Author author) {
-        if (author != null) {
-            authors.add(author);
+    public void addAuthor(String authorID) {
+        if (authorID != null) {
+            authors.add(authorID);
         }
     }
-    public void removeAuthor(Author author) {
-        authors.remove(author);
+    public void removeAuthor(String authorID) {
+        authors.remove(authorID);
+    }
+    public List<String> getAuthorNames(Library library) {
+        return library.getAuthorNames(authors);
     }
 
     @Override
@@ -78,7 +82,7 @@ public class Book {
         if (authors.isEmpty()) {
             bookDetails.append("No Authors");
         } else {
-            for (Author author : authors) {
+            for (String author : authors) {
                 bookDetails.append("\n").append(author.toString());
             }
         }

@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class Inventory {
     private Map<Book, Integer> books;
+
     public Inventory() {
         books = new HashMap<>();
     }
@@ -12,7 +13,7 @@ public class Inventory {
         books.put(book, books.getOrDefault(book, 0) + quantity);
     }
 
-    public boolean removeBook(String isbn, int quantity) {
+    public void removeBook(String isbn, int quantity) {
         for (Map.Entry<Book, Integer> entry : books.entrySet()) {
             if (entry.getKey().getIsbn().equals(isbn)) {
                 int currentQuantity = entry.getValue();
@@ -21,12 +22,11 @@ public class Inventory {
                     if (books.get(entry.getKey()) == 0) {
                         books.remove(entry.getKey());
                     }
-                    return true;
                 }
                 break;
             }
         }
-        return false;
+        return;
     }
 
     public Book findBookByIsbn(String isbn) {
