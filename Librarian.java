@@ -85,24 +85,6 @@ class Librarian extends Person {
     public void setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
     }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     @Override
     public String toString() {

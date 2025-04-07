@@ -20,6 +20,7 @@ public class Library {
         this.fixedPenalty = DEFAULT_PENALTY;
     }
 
+    /* Author functions */
     public void addNewAuthor(Author author){
         authorLists.put(author.getAuthorID(), author);
     }
@@ -53,7 +54,7 @@ public class Library {
 
             /* Create a new Borrow record */
             /* BorrowID, bookID, Dates, Status, Penalty, Student*/
-            Borrow borrow = new Borrow(borrowID, isbn, borrowDate, null, dueDate, Borrow.BorrowStatus.BORROWED, 0, studentID);
+            Borrow borrow = new Borrow(borrowID, isbn, borrowDate, null, dueDate, Borrow.BorrowStatus.BORROWED, fixedPenalty, studentID);
             borrowRecords.add(borrow);
         } else {
             throw new IllegalArgumentException("ISBN " + isbn + " is not available.");

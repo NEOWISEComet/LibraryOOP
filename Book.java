@@ -37,22 +37,14 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public int getPublicationYear() {
-        return publicationYear;
-    }
-
     public void setPublicationYear(int publicationYear) {
         this.publicationYear = publicationYear;
     }
-    public String getPublisher() {
-        return publisher;
-    }
+
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-    public String getGenre() {
-        return genre;
-    }
+
     public void setGenre(String genre) {
         this.genre = genre;
     }

@@ -3,9 +3,19 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+
+        /*
+         * There's a bunch of throw ArgumentException
+         * So you can comment them out or remove it
+         * If those throw exceptions are not needed
+         * 
+         */
+
         Library library = new Library();
         /* Library library, String firstName, String lastName, String email, String address, int phoneNumber, String employeeId, int age */
         Librarian librarian = new Librarian(library, "Alice", "Johnson", "alice@example.com", "123 Library St", 1234567890, "EMP001", 30);
+        
+        library.setFixedPenalty(100);
 
         // Add authors
         librarian.addAuthor("John", "Doe", "Active", 45, "A1");
@@ -37,7 +47,7 @@ public class Main {
         PrintAllBorrowRecords(librarian);
 
         TakeLine();
-        PrintAllBooks(librarian);   
+        PrintAllBooks(librarian);
     
         TakeLine();
         // Print all authors

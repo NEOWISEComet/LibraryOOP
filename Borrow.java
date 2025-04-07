@@ -33,17 +33,16 @@ class Borrow{
     public String getIsbn() {
         return isbn;
     }
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
-    }
+
     public LocalDate getBorrowDate() {
         return borrowDate;
     }
     public void setBorrowDate(LocalDate borrowDate) {
         if (dueDate != null && borrowDate.isAfter(dueDate)) {
             throw new IllegalArgumentException("Borrow date Invalid");
-        }
-        this.borrowDate = borrowDate;
+        } else {
+            this.borrowDate = borrowDate;
+        }     
     }
     public LocalDate getReturnDate() {
         return returnDate;
@@ -51,33 +50,38 @@ class Borrow{
     public void setReturnDate(LocalDate returnDate) {
         if (borrowDate != null && returnDate.isBefore(borrowDate)) {
             throw new IllegalArgumentException("Invalid return Date");
+        } else {
+            this.returnDate = returnDate;
         }
-        this.returnDate = returnDate;
     }
     public LocalDate getDueDate() {
         return dueDate;
     }
+
     public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
+    
     public BorrowStatus getBorrowStatus() {
         return borrowStatus;
     }
+
     public void setBorrowStatus(BorrowStatus borrowStatus) {
         this.borrowStatus = borrowStatus;
     }
-    public int getPenalty() {
-        return penalty;
-    }
+
     public int getStudentID() {
         return studentID;
     }
+    
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
+
     public void setPenalty(int penalty) {
         this.penalty = penalty;
     }
+
     @Override
     public String toString() {
         return "Borrow Details:\n" +
@@ -87,7 +91,7 @@ class Borrow{
                "Return Date: " + (returnDate != null ? returnDate : "Not Returned") + "\n" +
                "Due Date: " + dueDate + "\n" +
                "Status: " + borrowStatus + "\n" +
-               "Penalty: " + penalty + "\n" +
+               "Penalty: $" + penalty + "\n" +
                "Student ID: " + studentID;
     }
 
