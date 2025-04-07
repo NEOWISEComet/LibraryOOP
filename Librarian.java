@@ -75,6 +75,10 @@ class Librarian extends Person {
         throw new IllegalArgumentException("Book with ISBN " + isbn + " does not exist.");
     }
 
+    public Map<String, Author> getAllAuthors() {
+        return library.getAuthors();
+    }
+
     public String getEmployeeId() {
         return employeeId;
     }
