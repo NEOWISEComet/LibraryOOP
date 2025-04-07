@@ -24,7 +24,7 @@ public class Library {
         authorLists.put(author.getAuthorID(), author);
     }
     public Map<String, Author> getAuthors() { /* Lists of authors */
-    return Collections.unmodifiableMap(authorLists);
+        return Collections.unmodifiableMap(authorLists);
     }  
     public boolean checkAuthor(String authorID) {  /*checks if author exists in HashMap*/
         return authorLists.containsKey(authorID);
@@ -104,8 +104,11 @@ public class Library {
     }
 
     /* Create a New Book */
+    public boolean checkBook(String isbn) { /*checks if book exists in HashMap*/
+        return inventory.findBookByIsbn(isbn) != null;
+    }
     public void addNewBook(String title, String isbn, int publicationYear, String publisher, String genre, String authorID) {
-        if (inventory.findBookByIsbn(isbn) != null) {
+        if (checkBook(isbn)) {
             throw new IllegalArgumentException("ISBN " + isbn + " already exists.");
         }
         if (!checkAuthor(authorID)) {
@@ -137,7 +140,11 @@ public class Library {
         }
         Book book = inventory.findBookByIsbn(isbn);
         if (book != null) {
-            book.addAuthor(authorID);
+            if (!book.checkAuthorofBook(authorID)) {
+                book.addAuthor(authorID);
+            } else {
+                throw new IllegalArgumentException("AuthorID " + authorID + " already exists in " + book.getTitle());
+            }
         } else {
             throw new IllegalArgumentException("ISBN " + isbn + " does not exist.");
         }

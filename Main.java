@@ -4,6 +4,7 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Library library = new Library();
+        /* Library library, String firstName, String lastName, String email, String address, int phoneNumber, String employeeId, int age */
         Librarian librarian = new Librarian(library, "Alice", "Johnson", "alice@example.com", "123 Library St", 1234567890, "EMP001", 30);
 
         // Add authors
@@ -17,7 +18,7 @@ public class Main {
         // Add books
         librarian.addBook("Java Programming", "123456789", 2025, "TechBooks", "Programming", "A1", 5);
         librarian.addBook("Python Basics", "987654321", 2023, "CodePress", "Programming", "A2", 3);
-
+        
         // Print all books in the inventory
         PrintAllBooks(librarian);
         TakeLine();

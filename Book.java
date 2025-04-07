@@ -72,6 +72,9 @@ public class Book {
     public List<String> getAuthorNames(Library library) {
         return library.getAuthorNames(authors);
     }
+    public boolean checkAuthorofBook(String authorID) {
+        return authors.contains(authorID);
+    }
 
     @Override
     public String toString() {
