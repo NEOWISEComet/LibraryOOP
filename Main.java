@@ -7,8 +7,9 @@ public class Main {
         /*
          * There's a bunch of throw ArgumentException
          * So you can comment them out or remove it
-         * If those throw exceptions are not needed
-         * 
+         * If those throw exceptions are not needed remove but add functiontionality or some catcher
+         * These datas are just for testing
+         * It's necessarry to add the author first before adding the book
          */
 
         Library library = new Library();
