@@ -50,9 +50,6 @@ public class Book {
     }
 
     /* Author Functions */
-    public List<String> getAuthors() {
-        return new ArrayList<>(authors);
-    }
     public void addAuthor(String authorID) {
         if (authorID != null) {
             authors.add(authorID);

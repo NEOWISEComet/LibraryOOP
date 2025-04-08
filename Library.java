@@ -100,9 +100,6 @@ public class Library {
     public int getBookQuantity(String isbn) {
         return inventory.getBookQuantity(isbn);
     }
-    public Inventory getInventory() {
-        return inventory;
-    }
 
     /* Create a New Book */
     public boolean checkBook(String isbn) { /*checks if book exists in HashMap*/
